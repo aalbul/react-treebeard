@@ -73,6 +73,7 @@
   "dependencies": {
     "babel-runtime": "^5.8.29",
     "deep-equal": "^1.0.1",
+    "lodash.clone": "4.3.2",
     "radium": "^0.16.6",
     "react-utils": "aalbul/react-utils#immutable_js_support",
     "shallowequal": "^0.2.2",

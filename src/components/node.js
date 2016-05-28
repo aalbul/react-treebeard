@@ -3,6 +3,7 @@
 import React from 'react';
 import rutils from 'react-utils';
 import {VelocityTransitionGroup} from 'velocity-react';
+import clone from 'lodash.clone';
 
 import NodeHeader from './header';
 
@@ -59,7 +60,7 @@ class TreeNode extends React.Component {
                 decorators={decorators}
                 animations={animations}
                 style={this.props.style}
-                node={Object.assign({}, this.props.node)}
+                node={clone(this.props.node)}
                 onClick={this.onClick}
             />
         );
