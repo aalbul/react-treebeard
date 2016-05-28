@@ -42,7 +42,7 @@ class TreeNode extends React.Component {
         );
     }
     renderDrawer(decorators, animations){
-        const toggled = this.props.node.toggled;
+        const toggled = rutils.node.get(this.props.node, 'toggled');
         if(!animations && !toggled){ return null; }
         if(!animations && toggled){
             return this.renderChildren(decorators, animations);
@@ -65,13 +65,15 @@ class TreeNode extends React.Component {
         );
     }
     renderChildren(decorators){
-        if(this.props.node.loading){ return this.renderLoading(decorators); }
+        const loading = rutils.node.get(this.props.node, 'loading');
+        if(loading){ return this.renderLoading(decorators); }
+        const children = rutils.node.get(this.props.node, 'children');
         return (
             <ul style={this.props.style.subtree} ref="subtree">
-                {rutils.children.map(this.props.node.children, (child, index) =>
+                {rutils.children.map(children, (child, index) =>
                     <TreeNode
                         {...this._eventBubbles()}
-                        key={child.id || index}
+                        key={rutils.node.get(child, 'id') || index}
                         node={child}
                         decorators={this.props.decorators}
                         animations={this.props.animations}

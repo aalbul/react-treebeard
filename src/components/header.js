@@ -3,6 +3,7 @@
 import React from 'react';
 import shallowEqual from 'shallowequal';
 import deepEqual from 'deep-equal';
+import rutils from 'react-utils';
 
 class NodeHeader extends React.Component {
     constructor(props){
@@ -21,8 +22,8 @@ class NodeHeader extends React.Component {
     }
     render(){
         const {style, decorators} = this.props;
-        const terminal = !this.props.node.children;
-        const active = this.props.node.active;
+        const terminal = !rutils.node.get(this.props.node, 'children');
+        const active = rutils.node.get(this.props.node, 'active');
         const container = [style.link, active ? style.activeLink : null];
         const headerStyles = Object.assign({ container }, this.props.style);
         return (

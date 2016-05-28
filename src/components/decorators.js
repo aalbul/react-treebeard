@@ -3,6 +3,7 @@
 import React from 'react';
 import Radium from 'radium';
 import {VelocityComponent} from 'velocity-react';
+import rutils from 'react-utils';
 
 const Loading = (props) => {
     return (
@@ -45,7 +46,7 @@ const Header = (props) => {
     return (
         <div style={style.base}>
             <div style={style.title}>
-                {props.node.name}
+                {rutils.node.get(props.node, 'name')}
             </div>
         </div>
     );

@@ -20,7 +20,7 @@ class TreeBeard extends React.Component {
             <ul style={this.props.style.tree.base} ref="treeBase">
                 {data.map((node, index) =>
                     <TreeNode
-                        key={node.id || index}
+                        key={rutils.node.get(node, 'id') || index}
                         node={node}
                         onToggle={this.props.onToggle}
                         animations={this.props.animations}
